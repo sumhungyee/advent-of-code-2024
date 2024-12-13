@@ -25,7 +25,7 @@ def search(i, j, matrix):
 
     for dx, dy in directions:
         found = True
-        for t in range(3):
+        for t in range(3):  # Check the next three characters
             ni, nj = i + dx * (t + 1), j + dy * (t + 1)
             if not is_in_bounds(ni, nj, rows, cols) or matrix[ni][nj] != target[t]:
                 found = False
@@ -37,7 +37,7 @@ def search(i, j, matrix):
 
 matrix = read_input()
 r, c = len(matrix), len(matrix[0])
-coords = [(i, j) for i in range(r) for j in range(c) if matrix[i][j] == "A"]
+coords = [(i, j) for i in range(r) for j in range(c) if matrix[i][j] == "X"]
 cnt = 0
 for coord in coords:
     cnt += search(coord[0], coord[1], matrix)
