@@ -23,8 +23,6 @@ def toposort(adjlist: dict):
                 queue.append(item)
     return result
 
-
-
 data = read_input()
 idx = data.index("")
 first, second = data[0: idx], data[idx + 1: ]
