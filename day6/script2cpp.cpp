@@ -35,42 +35,26 @@ void traverse(int curr_x, int curr_y, int direction, int rows, int cols, std::ve
     while (!is_exiting(curr_x, curr_y, rows, cols, direction)) {
         switch (direction) {
             case 0:
-                if (map[curr_y - 1][curr_x] == '#') {
-                    direction = (direction + 1) % 4;
-                } else {
-                    curr_y--;
-                }
+                (map[curr_y - 1][curr_x] == '#') ? (direction = (direction + 1) % 4) : (curr_y--);
                 break;
 
             case 1:
-                if (map[curr_y][curr_x + 1] == '#') {
-                    direction = (direction + 1) % 4;
-                } else {
-                    curr_x++;
-                }
+                (map[curr_y][curr_x + 1] == '#') ? (direction = (direction + 1) % 4) : (curr_x++);
                 break;
 
             case 2:
-                if (map[curr_y + 1][curr_x] == '#') {
-                        direction = (direction + 1) % 4;
-                } else {
-                    curr_y++;
-                }
+                (map[curr_y + 1][curr_x] == '#') ? (direction = (direction + 1) % 4) : (curr_y++);
                 break;
 
             case 3:
-                if (map[curr_y][curr_x - 1] == '#') {
-                        direction = (direction + 1) % 4;
-                } else {
-                    curr_x--;
-                }
+                (map[curr_y][curr_x - 1] == '#') ? (direction = (direction + 1) % 4) : (curr_x--);
                 break;
 
             default:
                 std::cout << "error" << std::endl;
                 exit(1);
-
         }
+
 
         if (coordmap.count(helper(curr_x, curr_y)) > 0 && coordmap[helper(curr_x, curr_y)] == direction) {
             (*count)++;
@@ -99,7 +83,8 @@ int main() {
     int direction = 0; // for "up"
 
     std::vector<std::vector<bool>> visited(rows, std::vector<bool>(cols, false));
-
+    std::vector<std::pair<int, int>> visited_coords;
+    
     while (!is_exiting(curr_x, curr_y, rows, cols, direction)) {
         switch (direction) {
             case 0:
@@ -109,6 +94,7 @@ int main() {
                     curr_y--;
                     if (!visited[curr_y][curr_x]) {
                         visited[curr_y][curr_x] = true;
+                        visited_coords.push_back(std::make_pair(curr_x, curr_y));   
                     } 
                 }
                 break;
@@ -120,6 +106,7 @@ int main() {
                     curr_x++;
                     if (!visited[curr_y][curr_x]) {
                         visited[curr_y][curr_x] = true;
+                        visited_coords.push_back(std::make_pair(curr_x, curr_y));       
                     }
                 }
                 break;
@@ -131,6 +118,7 @@ int main() {
                         curr_y++;
                         if (!visited[curr_y][curr_x]) {
                             visited[curr_y][curr_x] = true;
+                            visited_coords.push_back(std::make_pair(curr_x, curr_y));    
                         } 
                     }
                     break;
@@ -142,6 +130,7 @@ int main() {
                         curr_x--;
                         if (!visited[curr_y][curr_x]) {
                             visited[curr_y][curr_x] = true;
+                            visited_coords.push_back(std::make_pair(curr_x, curr_y));        
                         } 
                     }
                     break;
@@ -150,16 +139,6 @@ int main() {
                 std::cout << "error" << std::endl;
                 exit(1);
 
-        }
-    }
-
-    std::vector<std::pair<int, int>> visited_coords;
-
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            if (visited[i][j]) {
-                visited_coords.push_back(std::make_pair(j, i));
-            }
         }
     }
 
