@@ -82,8 +82,8 @@ int main() {
     int curr_y = std::get<1>(tup);
     int direction = 0; // for "up"
 
-    std::vector<std::vector<bool>> visited(rows, std::vector<bool>(cols, false));
-    std::vector<std::pair<int, int>> visited_coords;
+
+    std::set<std::pair<int, int>> visited_coords;
     
     while (!is_exiting(curr_x, curr_y, rows, cols, direction)) {
         switch (direction) {
@@ -92,10 +92,7 @@ int main() {
                     direction = (direction + 1) % 4;
                 } else {
                     curr_y--;
-                    if (!visited[curr_y][curr_x]) {
-                        visited[curr_y][curr_x] = true;
-                        visited_coords.push_back(std::make_pair(curr_x, curr_y));   
-                    } 
+                    visited_coords.insert(std::make_pair(curr_x, curr_y));   
                 }
                 break;
 
@@ -104,10 +101,7 @@ int main() {
                     direction = (direction + 1) % 4;
                 } else {
                     curr_x++;
-                    if (!visited[curr_y][curr_x]) {
-                        visited[curr_y][curr_x] = true;
-                        visited_coords.push_back(std::make_pair(curr_x, curr_y));       
-                    }
+                    visited_coords.insert(std::make_pair(curr_x, curr_y));   
                 }
                 break;
 
@@ -116,10 +110,7 @@ int main() {
                         direction = (direction + 1) % 4;
                     } else {
                         curr_y++;
-                        if (!visited[curr_y][curr_x]) {
-                            visited[curr_y][curr_x] = true;
-                            visited_coords.push_back(std::make_pair(curr_x, curr_y));    
-                        } 
+                        visited_coords.insert(std::make_pair(curr_x, curr_y));    
                     }
                     break;
 
@@ -128,10 +119,7 @@ int main() {
                         direction = (direction + 1) % 4;
                     } else {
                         curr_x--;
-                        if (!visited[curr_y][curr_x]) {
-                            visited[curr_y][curr_x] = true;
-                            visited_coords.push_back(std::make_pair(curr_x, curr_y));        
-                        } 
+                        visited_coords.insert(std::make_pair(curr_x, curr_y));   
                     }
                     break;
 
