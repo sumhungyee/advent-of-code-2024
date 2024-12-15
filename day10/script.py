@@ -20,15 +20,12 @@ def bfs(q, script = 1):
 
             if x + 1 < rows and data[x + 1][y]== str(n + 1):
                 visitation.add((x + 1, y))
-                
                 q.put((n + 1, x + 1, y))
             if x - 1 >= 0 and data[x - 1][y] == str(n + 1):
                 visitation.add((x - 1, y))
-                
                 q.put((n + 1, x - 1, y))
             if y - 1 >= 0 and data[x][y - 1] == str(n + 1):
                 visitation.add((x, y - 1))
-                
                 q.put((n + 1, x, y - 1))
             if y + 1 < cols and data[x][y + 1] == str(n + 1):
                 visitation.add((x, y + 1)) 
@@ -45,15 +42,12 @@ def bfs(q, script = 1):
 
             if x + 1 < rows and data[x + 1][y]== str(n + 1):
                 visitation.add((x + 1, y))
-                
                 q.put((n + 1, x + 1, y))
             if x - 1 >= 0 and data[x - 1][y] == str(n + 1):
                 visitation.add((x - 1, y))
-                
                 q.put((n + 1, x - 1, y))
             if y - 1 >= 0 and data[x][y - 1] == str(n + 1):
                 visitation.add((x, y - 1))
-                
                 q.put((n + 1, x, y - 1))
             if y + 1 < cols and data[x][y + 1] == str(n + 1):
                 visitation.add((x, y + 1)) 
