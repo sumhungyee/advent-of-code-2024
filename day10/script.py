@@ -17,7 +17,6 @@ def bfs(q, script = 1):
             
             if n == 9:
                 routes.add((x, y))
-
             if x + 1 < rows and data[x + 1][y]== str(n + 1):
                 visitation.add((x + 1, y))
                 q.put((n + 1, x + 1, y))
