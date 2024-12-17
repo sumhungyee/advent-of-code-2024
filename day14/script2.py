@@ -1,4 +1,5 @@
-# what the hell man, this is a terrible question imo. Also, despite what people say, the grid with the least safety factor is not the image.
+# what the hell man, this is a terrible question imo. Also, despite what people say, the grid with the least safety factor is not necessarily the image. 
+# Statistical analyses did not help either.
 import os
 import re
 rows, cols = 103, 101
@@ -40,7 +41,4 @@ for step in range(1, rows * cols + 1):
         beststep = step
         print(beststep)
         print_grid(data)
-
-
-
 print(beststep)
