@@ -5,7 +5,7 @@ def read_input():
     return data[:data.index("")][0].split(", "), data[data.index("") + 1:]
 left, right = read_input()
 constructible = {l: True for l in left}
-
+constructible[""] = False
 def check(can):
     if can not in constructible:
         for word in left:
@@ -15,8 +15,6 @@ def check(can):
                     constructible[can] = True
                     return True
         constructible[can] = False
-        return False
-    elif not can:
         return False
     else:
         return constructible[can]

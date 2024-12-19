@@ -15,10 +15,7 @@ def check(can):
                 remaining = can[:len(can) - len(word)]
                 number = check(remaining)
                 constructible[can] += number
-
         return constructible[can]
-    elif not can:
-        return 0
     else:
         return constructible[can]
 
