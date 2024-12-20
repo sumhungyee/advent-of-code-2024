@@ -39,8 +39,7 @@ def search(start):
                 prev[(newr, newc)] = (r, c)
     return prev
 
-prev = search(start)
-print(end)     
+prev = search(start)   
 curr = end
 ls = [curr]
 while curr in prev:
@@ -58,7 +57,6 @@ def im_ashamed_i_did_dijkstra(start):
             if abs(i) + abs(j) <= 20 and in_bounds(start[0] + i, start[1] + j):
                 dist[(start[0] + i, start[1] + j)] = abs(i) + abs(j)
     return dist
-
 
 num = 0
 indices = {ls[i]: i for i in range(len(ls))}
