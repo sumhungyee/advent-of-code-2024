@@ -20,7 +20,7 @@ def check(can):
         return constructible[can]
 
 ll = sorted([(len(l), l) for l in left], key=lambda x: x[0])
-print(ll)
+
 minlen = ll[0][0]
 blocks = []
 while ll:
@@ -29,7 +29,6 @@ while ll:
         constructible[out] = 1
     else:
         constructible[out] = check(out) + 1
-    print((out, constructible[out]))
 
 naur = 0
 for candidate in right:
